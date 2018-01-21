@@ -63,10 +63,10 @@ def map[A, B](fn: A => B, lst: List[A]): List[B] = {
 
 var nums = 1 :: 2 :: 3 :: Nil
 
-def map[A, B](fn: A => B, lst: List[A]): List[B] = {
-  match lst {
+def myMap[A, B](fn: A => B, lst: List[A]): List[B] = {
+  lst match {
     case Nil => Nil
-    case a :: b =>  map(fn, b)
+    case a :: b => myMap(fn, fn(a) :: b)
   }
 }
 
